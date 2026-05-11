@@ -278,7 +278,7 @@ export const ambientes: Ambiente[] = [
         materiais: ["Teca natural tratada", "Óleo de teca importado", "Pés em alumínio anodizado", "Parafusos inox A4"],
         dimensoes: "60 × 45 × 45 cm",
         preco: 780,
-        imagem: "https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?w=800&q=80",
+        imagem: "https://images.unsplash.com/photo-1620626011761-996317702782?w=800&q=80",
       },
       {
         id: "ban-prateleira",
@@ -287,7 +287,7 @@ export const ambientes: Ambiente[] = [
         materiais: ["Vidro temperado 8mm", "Suporte cromado em zamak", "Trilho inox escovado", "Fixação com âncora química"],
         dimensoes: "60 × 15 × 8mm",
         preco: 320,
-        imagem: "https://images.unsplash.com/photo-1507652955-f3dcef5a3be5?w=800&q=80",
+        imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
       },
     ],
   },
