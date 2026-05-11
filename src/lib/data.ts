@@ -10,8 +10,8 @@ export const empresa = {
   descricao:
     "Com 15 anos de experiência, a Ebanos Planejados é referência em móveis residenciais personalizados em Limeira-SP. Unimos tradição artesanal e tecnologia moderna para transformar cada ambiente da sua casa.",
   endereco: "Rua das Madeiras, 1250 — Vila Móvel, Limeira - SP, 13480-000",
-  telefone: "(11) 99999-8888",
-  whatsapp: "5511999998888",
+  telefone: "(19) 99999-8888",
+  whatsapp: "5519999998888",
   email: "contato@ebanos-planejados.com.br",
   instagram: "https://instagram.com/ebanosplanejados",
   facebook: "https://facebook.com/ebanosplanejados",

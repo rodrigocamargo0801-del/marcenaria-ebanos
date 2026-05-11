@@ -216,7 +216,7 @@ export default function OrcamentoPage() {
                       required
                       value={form.telefone}
                       onChange={handleChange}
-                      placeholder="(11) 99999-8888"
+                      placeholder="(19) 99999-8888"
                       className={`w-full px-4 py-3 rounded-xl border text-sm outline-none transition-colors ${
                         erros.telefone
                           ? "border-red-400 bg-red-50"

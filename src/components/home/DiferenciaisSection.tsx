@@ -66,7 +66,7 @@ export default function DiferenciaisSection() {
               </p>
             </div>
             <a
-              href={`https://wa.me/5511999998888?text=Quero agendar a consulta de design grátis!`}
+              href={`https://wa.me/5519999998888?text=Quero agendar a consulta de design grátis!`}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 px-8 py-3.5 bg-white text-amber-900 font-bold rounded-xl hover:bg-amber-50 transition-colors shadow-lg"
