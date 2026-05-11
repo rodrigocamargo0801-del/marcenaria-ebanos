@@ -437,7 +437,25 @@ export default function OrcamentoPage() {
                 </li>
                 <li className="flex gap-3 items-center">
                   <Mail size={18} className="text-amber-400 shrink-0" aria-hidden="true" />
-                  <a href={`mailto:${empresa.email}`} className="text-stone-300 hover:text-amber-300 transition-colors break-all">
+                  <a
+                    href={`mailto:${empresa.email}?subject=${encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados")}&body=${encodeURIComponent("Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: ")}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
+                      const body = encodeURIComponent("Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: ");
+                      const mailtoUrl = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
+                      // Tenta abrir no Outlook via protocolo ms-outlook:
+                      const outlookUrl = `ms-outlook:compose?to=${empresa.email}&subject=${subject}&body=${body}`;
+                      const popup = window.open(outlookUrl, "_blank");
+                      // Se o protocolo ms-outlook não for suportado, cai para mailto:
+                      setTimeout(() => {
+                        if (!popup || popup.closed || typeof popup.closed === "undefined") {
+                          window.location.href = mailtoUrl;
+                        }
+                      }, 500);
+                    }}
+                    className="text-stone-300 hover:text-amber-300 transition-colors break-all"
+                  >
                     {empresa.email}
                   </a>
                 </li>
