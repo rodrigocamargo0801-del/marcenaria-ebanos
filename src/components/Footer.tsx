@@ -1,6 +1,21 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
+
+function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  const isWindows =
+    typeof navigator !== "undefined" &&
+    navigator.platform.toLowerCase().includes("win");
+
+  if (isWindows) {
+    e.preventDefault();
+    window.location.href =
+      "ms-outlook:compose?to=contato@ebanos-planejados.com.br&subject=Orçamento";
+  }
+  // Em outros SOs deixa o href padrão (mailto:) funcionar normalmente
+}
 
 const navSections = [
   {
@@ -157,7 +172,8 @@ export default function Footer() {
             <li className="flex gap-3 items-center">
               <Mail size={16} className="text-amber-500 shrink-0" aria-hidden="true" />
               <a
-                href={`mailto:contato@ebanos-planejados.com.br?subject=Orçamento&body=Olá,%20gostaria%20de%20solicitar%20um%20orçamento`}
+                href="mailto:contato@ebanos-planejados.com.br?subject=Orçamento"
+                onClick={handleEmailClick}
                 className="text-stone-400 hover:text-amber-400 transition-colors break-all"
               >
                 {empresa.email}
