@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
@@ -31,31 +29,14 @@ export default function Footer() {
   const anoAtual = new Date().getFullYear();
   const whatsappUrl = `https://wa.me/${empresa.whatsapp}?text=Olá! Gostaria de solicitar um orçamento.`;
 
-  function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    const to = encodeURIComponent(empresa.email);
-    const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
-    const body = encodeURIComponent(
-      "Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: "
-    );
-    // Destinatário encodeado garante que o Outlook preencha o campo "Para" corretamente
-    const outlookUrl = `ms-outlook:compose?to=${to}&subject=${subject}&body=${body}`;
-    const mailtoUrl = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
-
-    const link = document.createElement("a");
-    link.href = outlookUrl;
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Fallback para mailto: caso o Outlook não esteja instalado
-    setTimeout(() => {
-      if (document.hasFocus()) {
-        window.location.href = mailtoUrl;
-      }
-    }, 1000);
-  }
+  const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
+  const body = encodeURIComponent(
+    "Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: "
+  );
+  // mailto: é o protocolo padrão reconhecido por todos os SO e clientes de email.
+  // O Windows abre automaticamente o cliente padrão (Outlook, Thunderbird etc.)
+  // com o campo "Para", "Assunto" e "Corpo" já preenchidos — sem necessidade de JS.
+  const mailtoHref = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
 
   return (
     <footer className="bg-stone-900 text-stone-300" role="contentinfo">
@@ -185,8 +166,7 @@ export default function Footer() {
             <li className="flex gap-3 items-center">
               <Mail size={16} className="text-amber-500 shrink-0" aria-hidden="true" />
               <a
-                href={`mailto:${empresa.email}`}
-                onClick={handleEmailClick}
+                href={mailtoHref}
                 className="text-stone-400 hover:text-amber-400 transition-colors break-all"
               >
                 {empresa.email}
