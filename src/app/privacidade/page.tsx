@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
-  description: "Política de privacidade e proteção de dados da Marcenaria Silva.",
+  description: "Política de privacidade e proteção de dados da Ebanos Planejados.",
 };
 
 export default function PrivacidadePage() {
@@ -13,7 +13,7 @@ export default function PrivacidadePage() {
       </h1>
       <div className="prose prose-stone max-w-none text-stone-600 leading-relaxed space-y-4 text-[15px]">
         <p>
-          A Marcenaria Silva respeita sua privacidade e está comprometida com a proteção dos
+          A Ebanos Planejados respeita sua privacidade e está comprometida com a proteção dos
           dados pessoais coletados neste site, em conformidade com a Lei Geral de Proteção de
           Dados (LGPD — Lei nº 13.709/2018).
         </p>

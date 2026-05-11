@@ -453,7 +453,7 @@ export default function OrcamentoPage() {
           <AnimatedSection delay={300}>
             <div className="rounded-2xl overflow-hidden border border-stone-200 shadow-sm">
               <iframe
-                title="Localização da Marcenaria Silva no Google Maps"
+                title="Localização da Ebanos Planejados no Google Maps"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0975!2d-46.6333824!3d-23.5505199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjkiUyA0NsKwMzgnMDAuMiJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
                 width="100%"
                 height="240"

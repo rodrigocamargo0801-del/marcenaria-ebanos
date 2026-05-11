@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      aria-label="Apresentação principal da Marcenaria Silva"
+      aria-label="Apresentação principal da Ebanos Planejados"
     >
       {/* ── Background com logo ÉBANO ── */}
       <div className="absolute inset-0">

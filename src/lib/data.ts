@@ -303,7 +303,7 @@ export const depoimentos = [
     nome: "Ana Carolina Ferreira",
     bairro: "Moema, SP",
     nota: 5,
-    texto: "A Marcenaria Silva transformou completamente a minha cozinha. O projeto foi entregue no prazo, com acabamento impecável. Super recomendo!",
+    texto: "A Ebanos Planejados transformou completamente a minha cozinha. O projeto foi entregue no prazo, com acabamento impecável. Super recomendo!",
     avatar: "https://i.pravatar.cc/80?img=47",
     ambiente: "Cozinha",
   },

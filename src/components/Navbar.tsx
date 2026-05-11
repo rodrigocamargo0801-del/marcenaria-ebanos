@@ -236,7 +236,7 @@ export default function Navbar() {
           {/* Cabeçalho do menu */}
           <div className="flex items-center justify-between p-5 bg-amber-800 text-white">
             <span className="font-[var(--font-playfair)] font-bold text-lg">
-              Marcenaria Silva
+              Ebanos Planejados
             </span>
             <button
               onClick={() => setMenuAberto(false)}

@@ -6,7 +6,7 @@ import CtaSection from "@/components/home/CtaSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Marcenaria Silva | Móveis Feitos à Mão, Feitos com Amor",
+  title: "Ebanos Planejados | Móveis Feitos à Mão, Feitos com Amor",
   description:
     "Móveis residenciais personalizados na Grande São Paulo. 15 anos de experiência. Consulta de design grátis. Solicite seu orçamento agora.",
 };

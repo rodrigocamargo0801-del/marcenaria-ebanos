@@ -67,7 +67,7 @@ export default function Footer() {
         <div className="lg:col-span-1">
           <Link href="/" className="inline-block mb-4" aria-label="Página inicial">
             <span className="font-[var(--font-playfair)] text-xl font-bold text-white">
-              Marcenaria Silva
+              Ebanos Planejados
             </span>
           </Link>
           <p className="text-sm text-stone-400 leading-relaxed mb-5">
@@ -79,7 +79,7 @@ export default function Footer() {
               href={empresa.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram da Marcenaria Silva"
+              aria-label="Instagram da Ebanos Planejados"
               className="p-2 bg-stone-800 hover:bg-amber-800 rounded-lg transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -90,7 +90,7 @@ export default function Footer() {
               href={empresa.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook da Marcenaria Silva"
+              aria-label="Facebook da Ebanos Planejados"
               className="p-2 bg-stone-800 hover:bg-amber-800 rounded-lg transition-colors"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -101,7 +101,7 @@ export default function Footer() {
               href={empresa.pinterest}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Pinterest da Marcenaria Silva"
+              aria-label="Pinterest da Ebanos Planejados"
               className="p-2 bg-stone-800 hover:bg-amber-800 rounded-lg transition-colors"
             >
               {/* Ícone Pinterest SVG inline (não existe no Lucide) */}
@@ -175,7 +175,7 @@ export default function Footer() {
       <div className="border-t border-stone-800 px-6 py-5">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-stone-500">
           <p>
-            &copy; {anoAtual} Marcenaria Silva. Todos os direitos reservados.{" "}
+            &copy; {anoAtual} Ebanos Planejados. Todos os direitos reservados.{" "}
             <span className="text-stone-600">CNPJ {empresa.cnpj}</span>
           </p>
           <div className="flex gap-4">

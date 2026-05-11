@@ -22,8 +22,8 @@ const inter = Inter({
 // ── SEO Metadata ──
 export const metadata: Metadata = {
   title: {
-    default: "Marcenaria Silva | Móveis Feitos à Mão, Feitos com Amor",
-    template: "%s | Marcenaria Silva",
+    default: "Ebanos Planejados | Móveis Feitos à Mão, Feitos com Amor",
+    template: "%s | Ebanos Planejados",
   },
   description:
     "Móveis residenciais personalizados com 15 anos de experiência. Sala, quarto, cozinha, home office e banheiro. Consulta de design grátis. Atendemos toda a Grande São Paulo.",
@@ -35,16 +35,16 @@ export const metadata: Metadata = {
     "móveis personalizados",
     "cozinha planejada",
     "guarda-roupa sob medida",
-    "Marcenaria Silva",
+    "Ebanos Planejados",
   ],
-  authors: [{ name: "Marcenaria Silva", url: "https://marcenaria-silva.com.br" }],
-  creator: "Marcenaria Silva",
+  authors: [{ name: "Ebanos Planejados", url: "https://marcenaria-silva.com.br" }],
+  creator: "Ebanos Planejados",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: "https://marcenaria-silva.com.br",
-    siteName: "Marcenaria Silva",
-    title: "Marcenaria Silva | Móveis Feitos à Mão, Feitos com Amor",
+    siteName: "Ebanos Planejados",
+    title: "Ebanos Planejados | Móveis Feitos à Mão, Feitos com Amor",
     description:
       "Móveis residenciais personalizados com 15 anos de experiência em São Paulo. Consulta de design grátis.",
     images: [
@@ -52,13 +52,13 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "Sala de estar com móveis da Marcenaria Silva",
+        alt: "Sala de estar com móveis da Ebanos Planejados",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marcenaria Silva | Móveis Feitos à Mão",
+    title: "Ebanos Planejados | Móveis Feitos à Mão",
     description: "Móveis residenciais personalizados. Consulta de design grátis em São Paulo.",
   },
   robots: {
