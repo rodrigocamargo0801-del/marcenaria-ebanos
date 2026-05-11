@@ -4,17 +4,54 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
 
+const EMAIL = "contato@ebanos-planejados.com.br";
+const SUBJECT = "Orçamento";
+
+// ms-outlook://compose é o esquema correto para abrir Nova Mensagem no
+// Outlook Classic do Windows. O New Outlook ainda não suporta esse protocolo,
+// por isso usamos um iframe oculto para tentar disparar o handler e, se após
+// 800 ms o documento ainda estiver visível (handler não assumiu), fazemos
+// fallback para mailto: — que abre qualquer cliente padrão configurado.
 function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
   const isWindows =
     typeof navigator !== "undefined" &&
     navigator.platform.toLowerCase().includes("win");
 
-  if (isWindows) {
-    e.preventDefault();
-    window.location.href =
-      "ms-outlook:compose?to=contato@ebanos-planejados.com.br&subject=Orçamento";
+  if (!isWindows) return; // outros SOs: deixa o href mailto: funcionar
+
+  e.preventDefault();
+
+  const msOutlookUri = `ms-outlook://compose?to=${EMAIL}&subject=${encodeURIComponent(SUBJECT)}`;
+  const mailtoUri = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}`;
+
+  // Tenta abrir pelo protocolo ms-outlook:// via iframe oculto.
+  // Se o Outlook Classic estiver instalado e configurado, ele assume.
+  // Se não houver handler registrado (New Outlook / sem Outlook), faz fallback.
+  let fallbackTimer: ReturnType<typeof setTimeout>;
+
+  const iframe = document.createElement("iframe");
+  iframe.style.display = "none";
+  document.body.appendChild(iframe);
+
+  const cleanup = () => {
+    clearTimeout(fallbackTimer);
+    document.body.removeChild(iframe);
+  };
+
+  fallbackTimer = setTimeout(() => {
+    cleanup();
+    // Handler não respondeu — usa mailto: como fallback
+    window.location.href = mailtoUri;
+  }, 800);
+
+  iframe.onload = cleanup; // handler respondeu, não precisa do fallback
+
+  try {
+    iframe.src = msOutlookUri;
+  } catch {
+    cleanup();
+    window.location.href = mailtoUri;
   }
-  // Em outros SOs deixa o href padrão (mailto:) funcionar normalmente
 }
 
 const navSections = [
