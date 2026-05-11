@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
@@ -37,6 +39,25 @@ export default function Footer() {
   // O Windows abre automaticamente o cliente padrão (Outlook, Thunderbird etc.)
   // com o campo "Para", "Assunto" e "Corpo" já preenchidos — sem necessidade de JS.
   const mailtoHref = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
+
+  // Tenta abrir o Outlook diretamente via protocolo ms-outlook:.
+  // Fallbacks encadeados: ms-outlook → outlook:// → mailto: padrão.
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
+    // 1ª tentativa: protocolo proprietário do Outlook (Windows Store / MSI)
+    window.location.href = `ms-outlook:compose?to=${empresa.email}`;
+
+    setTimeout(() => {
+      // 2ª tentativa: protocolo alternativo registrado por algumas versões do Outlook
+      window.location.href = `outlook://compose?to=${empresa.email}`;
+    }, 500);
+
+    setTimeout(() => {
+      // Fallback final: mailto padrão — abre o cliente de email configurado no SO
+      window.location.href = mailtoHref;
+    }, 1000);
+  };
 
   return (
     <footer className="bg-stone-900 text-stone-300" role="contentinfo">
@@ -167,6 +188,7 @@ export default function Footer() {
               <Mail size={16} className="text-amber-500 shrink-0" aria-hidden="true" />
               <a
                 href={mailtoHref}
+                onClick={handleEmailClick}
                 className="text-stone-400 hover:text-amber-400 transition-colors break-all"
               >
                 {empresa.email}
