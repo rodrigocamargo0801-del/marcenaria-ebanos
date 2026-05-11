@@ -9,7 +9,7 @@ import { empresa, socios, diferenciais, materiais } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Quem Somos",
   description:
-    "Conheça a história da Ebanos Planejados: 15 anos de experiência em móveis residenciais personalizados em São Paulo. Missão, visão, valores e equipe.",
+    "Conheça a história da Ebanos Planejados: 15 anos de experiência em móveis residenciais personalizados em Limeira-SP. Missão, visão, valores e equipe.",
 };
 
 const missaoVisaoValores = [
@@ -21,7 +21,7 @@ const missaoVisaoValores = [
   {
     titulo: "Visão",
     texto:
-      "Ser a marcenaria de referência na Grande São Paulo, reconhecida pela excelência artesanal, inovação no design e pelo compromisso com a sustentabilidade.",
+      "Ser a marcenaria de referência em Limeira-SP, reconhecida pela excelência artesanal, inovação no design e pelo compromisso com a sustentabilidade.",
   },
   {
     titulo: "Valores",
@@ -36,7 +36,7 @@ const linha_do_tempo = [
   { ano: "2015", evento: "Implantação de CNC e ferramentas de design 3D" },
   { ano: "2018", evento: "Certificação de madeira sustentável pelo IBAMA" },
   { ano: "2021", evento: "Prêmio Top Marcenaria SP — categoria Melhor Personalização" },
-  { ano: "2024", evento: "Mais de 1.200 projetos entregues na Grande São Paulo" },
+  { ano: "2024", evento: "Mais de 1.200 projetos entregues em Limeira-SP e região" },
 ];
 
 export default function QuemSomosPage() {
@@ -63,7 +63,7 @@ export default function QuemSomosPage() {
               Quem Somos
             </h1>
             <p className="text-stone-300 text-lg max-w-2xl mx-auto">
-              15 anos transformando madeira em memórias afetivas dentro dos lares de São Paulo.
+              15 anos transformando madeira em memórias afetivas dentro dos lares de Limeira-SP.
             </p>
           </AnimatedSection>
         </div>
@@ -93,7 +93,7 @@ export default function QuemSomosPage() {
             />
             <div className="space-y-4 text-stone-600 leading-relaxed text-[15px]">
               <p>
-                A Ebanos Planejados nasceu em 2009 de um sonho simples: criar móveis que as pessoas amassem de verdade. Carlos Silva, mestre marceneiro com 30 anos de ofício, e Fernanda Silva, arquiteta apaixonada por design de interiores, fundaram um pequeno ateliê no bairro Vila Móvel, em São Paulo.
+                A Ebanos Planejados nasceu em 2009 de um sonho simples: criar móveis que as pessoas amassem de verdade. Carlos Silva, mestre marceneiro com 30 anos de ofício, e Fernanda Silva, arquiteta apaixonada por design de interiores, fundaram um pequeno ateliê no bairro Vila Móvel, em Limeira-SP.
               </p>
               <p>
                 Nos primeiros anos, cada peça saía das mãos do Carlos com o cuidado de quem assina uma obra de arte. Com o tempo, a fama do trabalho impecável se espalhou pelo boca a boca — e o ateliê foi crescendo, sem jamais perder a essência artesanal.

@@ -475,7 +475,7 @@ export default function OrcamentoPage() {
                 {[
                   "Orçamento 100% gratuito e sem compromisso",
                   "Resposta em até 24 horas úteis",
-                  "Visita técnica gratuita em São Paulo",
+                  "Visita técnica gratuita em Limeira-SP",
                   "Projeto em 3D antes de executar",
                   "Garantia de 5 anos em todos os móveis",
                 ].map((item) => (

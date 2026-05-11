@@ -75,7 +75,7 @@ export default function Navbar() {
       >
         <span>{empresa.horario}</span>
         <div className="flex items-center gap-4">
-          <span>Atendemos toda a Grande São Paulo</span>
+          <span>Atendemos Limeira-SP e região</span>
           <a
             href={`tel:${empresa.telefone}`}
             className="flex items-center gap-1 font-semibold hover:text-white transition-colors"

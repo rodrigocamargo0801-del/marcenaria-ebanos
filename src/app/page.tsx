@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Ebanos Planejados | Móveis Feitos à Mão, Feitos com Amor",
   description:
-    "Móveis residenciais personalizados na Grande São Paulo. 15 anos de experiência. Consulta de design grátis. Solicite seu orçamento agora.",
+    "Móveis residenciais personalizados em Limeira-SP. 15 anos de experiência. Consulta de design grátis. Solicite seu orçamento agora.",
 };
 
 export default function HomePage() {

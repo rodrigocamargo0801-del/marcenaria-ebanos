@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     template: "%s | Ebanos Planejados",
   },
   description:
-    "Móveis residenciais personalizados com 15 anos de experiência. Sala, quarto, cozinha, home office e banheiro. Consulta de design grátis. Atendemos toda a Grande São Paulo.",
+    "Móveis residenciais personalizados com 15 anos de experiência. Sala, quarto, cozinha, home office e banheiro. Consulta de design grátis. Atendemos Limeira-SP e região.",
   keywords: [
     "marcenaria",
     "móveis planejados",
     "móveis sob medida",
-    "marcenaria São Paulo",
+    "marcenaria Limeira-SP",
     "móveis personalizados",
     "cozinha planejada",
     "guarda-roupa sob medida",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Ebanos Planejados",
     title: "Ebanos Planejados | Móveis Feitos à Mão, Feitos com Amor",
     description:
-      "Móveis residenciais personalizados com 15 anos de experiência em São Paulo. Consulta de design grátis.",
+      "Móveis residenciais personalizados com 15 anos de experiência em Limeira-SP. Consulta de design grátis.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ebanos Planejados | Móveis Feitos à Mão",
-    description: "Móveis residenciais personalizados. Consulta de design grátis em São Paulo.",
+    description: "Móveis residenciais personalizados. Consulta de design grátis em Limeira-SP.",
   },
   robots: {
     index: true,

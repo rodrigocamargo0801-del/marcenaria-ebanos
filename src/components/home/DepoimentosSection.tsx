@@ -43,7 +43,7 @@ export default function DepoimentosSection() {
           <SectionHeader
             tag="Clientes felizes"
             titulo="O que dizem sobre nós"
-            subtitulo="Mais de 1.200 famílias da Grande São Paulo confiaram em nós para transformar sua casa."
+            subtitulo="Mais de 1.200 famílias de Limeira-SP e região confiaram em nós para transformar sua casa."
             light
             id="depoimentos-titulo"
           />

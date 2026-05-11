@@ -44,7 +44,7 @@ export default function CtaSection() {
               Agende uma consulta de design gratuita. Nosso especialista vai até você, mede o espaço e apresenta o projeto em 3D — sem compromisso.
             </p>
             <p className="text-amber-300 text-sm mb-10 font-medium">
-              Atendemos toda a Grande São Paulo · Entrega e instalação incluídas
+              Atendemos Limeira-SP e região · Entrega e instalação incluídas
             </p>
 
             {/* CTAs */}

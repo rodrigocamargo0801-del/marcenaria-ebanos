@@ -8,8 +8,8 @@ export const empresa = {
   nome: "Ebanos Planejados",
   slogan: "Móveis Feitos à Mão, Feitos com Amor",
   descricao:
-    "Com 15 anos de experiência, a Ebanos Planejados é referência em móveis residenciais personalizados na Grande São Paulo. Unimos tradição artesanal e tecnologia moderna para transformar cada ambiente da sua casa.",
-  endereco: "Rua das Madeiras, 1250 — Vila Móvel, São Paulo - SP, 01234-567",
+    "Com 15 anos de experiência, a Ebanos Planejados é referência em móveis residenciais personalizados em Limeira-SP. Unimos tradição artesanal e tecnologia moderna para transformar cada ambiente da sua casa.",
+  endereco: "Rua das Madeiras, 1250 — Vila Móvel, Limeira - SP, 13480-000",
   telefone: "(11) 99999-8888",
   whatsapp: "5511999998888",
   email: "contato@ebanos-planejados.com.br",
@@ -17,7 +17,7 @@ export const empresa = {
   facebook: "https://facebook.com/ebanosplanejados",
   pinterest: "https://pinterest.com/ebanosplanejados",
   horario: "Seg–Sex: 8h–18h | Sáb: 8h–13h",
-  atuacao: "Toda a Grande São Paulo",
+  atuacao: "Limeira-SP e região",
   cnpj: "12.345.678/0001-90",
 };
 
@@ -437,7 +437,7 @@ export const diferenciais = [
   {
     icone: "award",
     titulo: "15 Anos de Experiência",
-    descricao: "Mais de 1.200 projetos entregues na Grande São Paulo com excelência e pontualidade.",
+    descricao: "Mais de 1.200 projetos entregues em Limeira-SP e região com excelência e pontualidade.",
   },
   {
     icone: "ruler",
@@ -457,7 +457,7 @@ export const diferenciais = [
   {
     icone: "truck",
     titulo: "Entrega e Instalação",
-    descricao: "Entregamos e instalamos em toda a Grande São Paulo com equipe própria treinada.",
+    descricao: "Entregamos e instalamos em Limeira-SP e região com equipe própria treinada.",
   },
   {
     icone: "leaf",
