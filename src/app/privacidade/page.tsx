@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { empresa } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
@@ -39,8 +40,8 @@ export default function PrivacidadePage() {
         <p>
           Você pode solicitar a qualquer momento: acesso aos seus dados, correção de dados
           incorretos, exclusão dos seus dados ou portabilidade. Entre em contato pelo e-mail{" "}
-          <a href="mailto:contato@marcenaria-silva.com.br" className="text-amber-700 underline">
-            contato@marcenaria-silva.com.br
+          <a href={`mailto:${empresa.email}`} className="text-amber-700 underline">
+            {empresa.email}
           </a>
           .
         </p>
