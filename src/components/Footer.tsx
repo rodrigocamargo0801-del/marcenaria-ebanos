@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
@@ -30,34 +28,6 @@ const navSections = [
 export default function Footer() {
   const anoAtual = new Date().getFullYear();
   const whatsappUrl = `https://wa.me/${empresa.whatsapp}?text=Olá! Gostaria de solicitar um orçamento.`;
-
-  const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
-  const body = encodeURIComponent(
-    "Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: "
-  );
-  // mailto: é o protocolo padrão reconhecido por todos os SO e clientes de email.
-  // O Windows abre automaticamente o cliente padrão (Outlook, Thunderbird etc.)
-  // com o campo "Para", "Assunto" e "Corpo" já preenchidos — sem necessidade de JS.
-  const mailtoHref = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
-
-  // Tenta abrir o Outlook diretamente via protocolo ms-outlook:.
-  // Fallbacks encadeados: ms-outlook → outlook:// → mailto: padrão.
-  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-
-    // 1ª tentativa: protocolo proprietário do Outlook (Windows Store / MSI)
-    window.location.href = `ms-outlook:compose?to=${empresa.email}`;
-
-    setTimeout(() => {
-      // 2ª tentativa: protocolo alternativo registrado por algumas versões do Outlook
-      window.location.href = `outlook://compose?to=${empresa.email}`;
-    }, 500);
-
-    setTimeout(() => {
-      // Fallback final: mailto padrão — abre o cliente de email configurado no SO
-      window.location.href = mailtoHref;
-    }, 1000);
-  };
 
   return (
     <footer className="bg-stone-900 text-stone-300" role="contentinfo">
@@ -187,8 +157,7 @@ export default function Footer() {
             <li className="flex gap-3 items-center">
               <Mail size={16} className="text-amber-500 shrink-0" aria-hidden="true" />
               <a
-                href={mailtoHref}
-                onClick={handleEmailClick}
+                href={`mailto:contato@ebanos-planejados.com.br?subject=Orçamento&body=Olá,%20gostaria%20de%20solicitar%20um%20orçamento`}
                 className="text-stone-400 hover:text-amber-400 transition-colors break-all"
               >
                 {empresa.email}
