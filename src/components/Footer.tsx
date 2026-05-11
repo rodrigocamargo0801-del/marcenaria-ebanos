@@ -33,11 +33,13 @@ export default function Footer() {
 
   function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
+    const to = encodeURIComponent(empresa.email);
     const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
     const body = encodeURIComponent(
       "Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: "
     );
-    const outlookUrl = `ms-outlook:compose?to=${empresa.email}&subject=${subject}&body=${body}`;
+    // Destinatário encodeado garante que o Outlook preencha o campo "Para" corretamente
+    const outlookUrl = `ms-outlook:compose?to=${to}&subject=${subject}&body=${body}`;
     const mailtoUrl = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
 
     const link = document.createElement("a");
