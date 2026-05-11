@@ -278,7 +278,7 @@ export const ambientes: Ambiente[] = [
         materiais: ["Teca natural tratada", "Óleo de teca importado", "Pés em alumínio anodizado", "Parafusos inox A4"],
         dimensoes: "60 × 45 × 45 cm",
         preco: 780,
-        imagem: "https://images.unsplash.com/photo-1620626011761-996317702782?w=800&q=80",
+        imagem: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
       },
       {
         id: "ban-prateleira",
