@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { empresa } from "@/lib/data";
@@ -28,6 +30,30 @@ const navSections = [
 export default function Footer() {
   const anoAtual = new Date().getFullYear();
   const whatsappUrl = `https://wa.me/${empresa.whatsapp}?text=Olá! Gostaria de solicitar um orçamento.`;
+
+  function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    const subject = encodeURIComponent("Solicitação de Orçamento — Ebanos Planejados");
+    const body = encodeURIComponent(
+      "Olá! Gostaria de solicitar um orçamento para móveis planejados.\n\nNome: \nTelefone: \nAmbiente desejado: \nDescrição do projeto: "
+    );
+    const outlookUrl = `ms-outlook:compose?to=${empresa.email}&subject=${subject}&body=${body}`;
+    const mailtoUrl = `mailto:${empresa.email}?subject=${subject}&body=${body}`;
+
+    const link = document.createElement("a");
+    link.href = outlookUrl;
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Fallback para mailto: caso o Outlook não esteja instalado
+    setTimeout(() => {
+      if (document.hasFocus()) {
+        window.location.href = mailtoUrl;
+      }
+    }, 1000);
+  }
 
   return (
     <footer className="bg-stone-900 text-stone-300" role="contentinfo">
@@ -158,6 +184,7 @@ export default function Footer() {
               <Mail size={16} className="text-amber-500 shrink-0" aria-hidden="true" />
               <a
                 href={`mailto:${empresa.email}`}
+                onClick={handleEmailClick}
                 className="text-stone-400 hover:text-amber-400 transition-colors break-all"
               >
                 {empresa.email}
