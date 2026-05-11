@@ -7,50 +7,85 @@ import { empresa } from "@/lib/data";
 const EMAIL = "contato@ebanos-planejados.com.br";
 const SUBJECT = "Orçamento";
 
-// ms-outlook://compose é o esquema correto para abrir Nova Mensagem no
-// Outlook Classic do Windows. O New Outlook ainda não suporta esse protocolo,
-// por isso usamos um iframe oculto para tentar disparar o handler e, se após
-// 800 ms o documento ainda estiver visível (handler não assumiu), fazemos
-// fallback para mailto: — que abre qualquer cliente padrão configurado.
+// Lógica de abertura de email para Windows com três níveis de fallback:
+//
+//  1. ms-outlook://compose — Outlook Classic (protocolo registrado no Windows).
+//     Tentativa feita via iframe oculto para não navegar fora da página.
+//     Se o handler responder antes de 800 ms, considera sucesso e para.
+//
+//  2. https://outlook.live.com/mail/0/compose — New Outlook / Outlook na web.
+//     Usado quando o protocolo ms-outlook:// não está registrado.
+//     Abre numa nova aba; funciona mesmo sem login (redireciona para sign-in).
+//
+//  3. mailto: — último recurso universal.
+//     Aciona o cliente de e-mail padrão configurado no sistema operacional.
+//     Usado quando nenhuma das opções acima funcionar OU em sistemas não-Windows.
 function handleEmailClick(e: React.MouseEvent<HTMLAnchorElement>) {
   const isWindows =
     typeof navigator !== "undefined" &&
     navigator.platform.toLowerCase().includes("win");
 
-  if (!isWindows) return; // outros SOs: deixa o href mailto: funcionar
+  if (!isWindows) return; // outros SOs: deixa o href mailto: funcionar normalmente
 
   e.preventDefault();
 
   const msOutlookUri = `ms-outlook://compose?to=${EMAIL}&subject=${encodeURIComponent(SUBJECT)}`;
+  const outlookWebUrl = `https://outlook.live.com/mail/0/compose?to=${encodeURIComponent(EMAIL)}&subject=${encodeURIComponent(SUBJECT)}`;
   const mailtoUri = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}`;
 
-  // Tenta abrir pelo protocolo ms-outlook:// via iframe oculto.
-  // Se o Outlook Classic estiver instalado e configurado, ele assume.
-  // Se não houver handler registrado (New Outlook / sem Outlook), faz fallback.
-  let fallbackTimer: ReturnType<typeof setTimeout>;
+  // --- Nível 1: tenta ms-outlook:// via iframe oculto ---
+  // Se o Outlook Classic estiver instalado, o handler do protocolo é acionado
+  // e o iframe dispara onload (ou o navegador simplesmente ignora o src com
+  // scheme desconhecido sem navegar). Após 800 ms sem resposta, cai no nível 2.
+  let handled = false;
 
   const iframe = document.createElement("iframe");
   iframe.style.display = "none";
   document.body.appendChild(iframe);
 
   const cleanup = () => {
-    clearTimeout(fallbackTimer);
-    document.body.removeChild(iframe);
+    if (document.body.contains(iframe)) {
+      document.body.removeChild(iframe);
+    }
   };
 
-  fallbackTimer = setTimeout(() => {
+  // Se o protocolo for reconhecido, o navegador dispara onload ou blur na janela.
+  const onWindowBlur = () => {
+    // A janela perdeu o foco → o Outlook Classic provavelmente abriu.
+    handled = true;
+    window.removeEventListener("blur", onWindowBlur);
     cleanup();
-    // Handler não respondeu — usa mailto: como fallback
-    window.location.href = mailtoUri;
+  };
+  window.addEventListener("blur", onWindowBlur);
+
+  const fallbackTimer = setTimeout(() => {
+    window.removeEventListener("blur", onWindowBlur);
+    cleanup();
+
+    if (handled) return; // Outlook Classic já abriu, nada a fazer
+
+    // --- Nível 2: New Outlook / Outlook web ---
+    // Abre outlook.live.com em nova aba. Se o usuário não estiver logado,
+    // o Outlook.com pede autenticação antes de abrir o compose.
+    window.open(outlookWebUrl, "_blank", "noopener,noreferrer");
   }, 800);
 
-  iframe.onload = cleanup; // handler respondeu, não precisa do fallback
+  // Segurança: se o iframe carregar qualquer conteúdo, não precisamos do fallback.
+  iframe.onload = () => {
+    handled = true;
+    clearTimeout(fallbackTimer);
+    window.removeEventListener("blur", onWindowBlur);
+    cleanup();
+  };
 
   try {
     iframe.src = msOutlookUri;
   } catch {
+    // Erro ao setar src (raro) — pula direto para nível 3
+    clearTimeout(fallbackTimer);
+    window.removeEventListener("blur", onWindowBlur);
     cleanup();
-    window.location.href = mailtoUri;
+    window.location.href = mailtoUri; // nível 3: mailto:
   }
 }
 
